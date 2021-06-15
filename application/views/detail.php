@@ -28,6 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<th>Tanggal Lahir</th>
 							<th>Alamat</th>
 							<th>Telepon</th>
+							<th colspan="2">Aksi</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -50,6 +51,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</td>
 							<td>
 								<?php echo $student->phone ?>
+							</td>
+							<td>
+								<a href="<?php echo site_url('welcome/editStudent/'.$student->id) ?>">Edit</a>
+							</td>
+							<td>
+								<a href="<?php echo site_url('welcome/deleteStudent/'.$student->id) ?>">Hapus</a>
 							</td>
 						</tr>
 						<?php endforeach; ?>

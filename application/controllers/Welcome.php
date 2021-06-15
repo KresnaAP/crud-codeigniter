@@ -44,31 +44,31 @@ class Welcome extends CI_Controller {
 		$this->load->view('add_student');
 	}
 
-	// public function editStudent($id = null)
-    // {
-    //     if (!isset($id)) redirect('admin/products');
+	public function editStudent($id = null)
+    {
+        if (!isset($id)) redirect('welcome/');
        
-    //     $product = $this->product_model;
-    //     $validation = $this->form_validation;
-    //     $validation->set_rules($product->rules());
+        $student = $this->student_model;
+        $validation = $this->form_validation;
+        $validation->set_rules($student->rules());
 
-    //     if ($validation->run()) {
-    //         $product->update();
-    //         $this->session->set_flashdata('success', 'Berhasil disimpan');
-    //     }
+        if ($validation->run()) {
+            $student->update();
+            $this->session->set_flashdata('success', 'Berhasil disimpan');
+        }
 
-    //     $data["product"] = $product->getById($id);
-    //     if (!$data["product"]) show_404();
+        $data["student"] = $student->getById($id);
+        if (!$data["student"]) show_404();
         
-    //     $this->load->view("admin/product/edit_form", $data);
-    // }
+        $this->load->view("edit_student", $data);
+    }
 
-    // public function deleteStudent($id=null)
-    // {
-    //     if (!isset($id)) show_404();
+    public function deleteStudent($id = null)
+    {
+        if (!isset($id)) show_404();
         
-    //     if ($this->product_model->delete($id)) {
-    //         redirect(site_url('admin/products'));
-    //     }
-    // }
+        if ($this->student_model->delete($id)) {
+            redirect(site_url('welcome/'));
+        }
+    }
 }
